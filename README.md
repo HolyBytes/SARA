@@ -24,13 +24,12 @@ sudo bash install.sh
 ```bash
 apt-get install tsu git imagemagick python -y
 python3 -m pip install Pillow
-git clone ttps://github.com/HolyBytes/SARA.git
+git clone https://github.com/R1punk/SARA
 cd SARA
 tsu
 bash installtermux.sh
 python3 tehsara.py
 ```
-
 
 ## ❓ Pemecahan Masalah
 
@@ -70,10 +69,9 @@ python3 tehsara.py
 - Jika mengalami error saat kompilasi, coba hapus folder temp dan coba lagi
 
 
-
 ## 📜 Lisensi
 
-Hak Cipta © 2025 oleh https://github.com/HolyBytes
+Hak Cipta https://github.com/HolyBytes
 
 ## ⚠️ Ingat Selalu
 
