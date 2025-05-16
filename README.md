@@ -24,7 +24,7 @@ sudo bash install.sh
 ```bash
 apt-get install tsu git imagemagick python -y
 python3 -m pip install Pillow
-git clone https://github.com/R1punk/SARA
+git clone [https://github.com/R1punk/SARA](https://github.com/HolyBytes/SARA.git)
 cd SARA
 tsu
 bash installtermux.sh
