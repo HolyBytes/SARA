@@ -1,23 +1,49 @@
-#! /usr/bin/bash
-null="> /dev/null 2>&1"
-g="\033[1;32m"
-r="\033[1;31m"
-b="\033[1;34m"
-w="\033[0m"
-echo -e $b">"$w" SARA - Simple android ransomware attack"
-echo -e $b">"$w" prepare for installing dependencies ..."
-sleep 3
-echo -e $b">"$w" installing package: "$g"default-jdk"$w
-sudo apt-get install default-jdk -y
-echo -e $b">"$w" installing package: "$g"aapt"$w
-sudo apt-get install aapt zipalign -y
-echo -e $b">"$w" installing package: "$g"apktool"$w
-sudo apt-get install apktool -y
-echo -e $b">"$w" installing package: "$g"imagemagick"$w
-sudo apt-get install imagemagick -y
-echo -e $b">"$w" installing pacakge: "$g"python3"$w
-sudo apt-get install python3 python3-pip -y
-echo -e $b">"$w" installing modules: "$g"pillow"$w
-pip3 install Pillow
-echo -e $b">"$w" successfully installing dependencies"
-echo -e $b">"$w" use command "$g"python3 sara.py"$w" for start the console"
+#!/bin/bash
+# Konfigurasi warna
+hijau="\033[1;32m"
+merah="\033[1;31m"
+biru="\033[1;34m"
+putih="\033[0m"
+
+# Fungsi untuk instalasi paket
+pasang_paket() {
+    echo -e "${biru}>${putih} memasang paket: ${hijau}$1${putih}"
+    if sudo apt-get install -y $1; then
+        echo -e "${biru}>${putih} ${hijau}berhasil${putih} memasang paket $1"
+    else
+        echo -e "${biru}>${putih} ${merah}gagal${putih} memasang paket $1"
+        exit 1
+    fi
+}
+
+# Fungsi untuk memasang modul python
+pasang_modul_python() {
+    echo -e "${biru}>${putih} memasang modul python: ${hijau}$1${putih}"
+    if pip3 install $1; then
+        echo -e "${biru}>${putih} ${hijau}berhasil${putih} memasang modul $1"
+    else
+        echo -e "${biru}>${putih} ${merah}gagal${putih} memasang modul $1"
+        exit 1
+    fi
+}
+
+echo -e "${biru}>${putih} Persiapan Instalasi Dependensi"
+echo -e "${biru}>${putih} Mempersiapkan instalasi dependensi..."
+sleep 2
+
+# Update repositori paket
+echo -e "${biru}>${putih} Memperbarui repositori paket..."
+sudo apt-get update
+
+# Memasang dependensi yang dibutuhkan
+pasang_paket "default-jdk"
+pasang_paket "aapt zipalign"
+pasang_paket "apktool"
+pasang_paket "imagemagick"
+pasang_paket "python3 python3-pip"
+
+# Memasang modul Python
+pasang_modul_python "Pillow"
+
+echo -e "${biru}>${putih} ${hijau}Semua dependensi berhasil dipasang!${putih}"
+echo -e "${biru}>${putih} Gunakan perintah ${hijau}python3 aplikasi.py${putih} untuk memulai program"
