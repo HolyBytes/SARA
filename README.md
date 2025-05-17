@@ -28,7 +28,7 @@ git clone https://github.com/HolyBytes/SARA.git
 cd SARA
 tsu
 bash installtermux.sh
-python3 tehsara.py
+python3 sara.py
 ```
 
 ## ❓ Pemecahan Masalah
